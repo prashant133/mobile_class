@@ -55,6 +55,12 @@ class DashboardView extends StatelessWidget {
               },
               child: const Text('Column'),
             ),
+            ElevatedButton(
+              onPressed: () {
+                Navigator.pushNamed(context, '/NumberRoute');
+              },
+              child: const Text('Number Generator'),
+            ),
           ],
         ),
       ),

@@ -12,25 +12,45 @@ class ArithmeticView extends StatefulWidget {
 }
 
 class _ArithmeticViewState extends State<ArithmeticView> {
-  int first = 0;
-  int second = 0;
+  final firstController = TextEditingController();
+  final secondController = TextEditingController();
   int result = 0;
 
   late Arithmetic arithmetic;
 
+  @override
+  void initState() {
+    // TODO: implement initState
+    firstController.text = '0';
+    secondController.text = '0';
+    super.initState();
+  }
+
+  @override
+  void dispose() {
+    // TODO: implement dispose
+    firstController.dispose();
+    secondController.dispose();
+    super.dispose();
+  }
+
   void add() {
     arithmetic = Arithmetic();
     setState(() {
-      result = arithmetic.add(first, second);
+      result = arithmetic.add(
+          int.parse(firstController.text), int.parse(secondController.text));
     });
   }
 
   void sub() {
     arithmetic = Arithmetic();
     setState(() {
-      result = arithmetic.sub(first, second);
+      result = arithmetic.sub(
+          int.parse(firstController.text), int.parse((secondController.text)));
     });
   }
+
+  final myKey = GlobalKey<FormState>();
 
   @override
   Widget build(BuildContext context) {
@@ -43,62 +63,79 @@ class _ArithmeticViewState extends State<ArithmeticView> {
       body: SingleChildScrollView(
         child: Padding(
           padding: const EdgeInsets.all(8.0),
-          child: Column(
-            children: [
-              const SizedBox(height: 8),
-              TextField(
-                onChanged: (value) {
-                  first = int.parse(value);
-                },
-                decoration: InputDecoration(
-                  hintText: 'Enter first no',
-                  border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(10),
+          child: Form(
+            key: myKey,
+            child: Column(
+              children: [
+                const SizedBox(height: 8),
+                TextFormField(
+                  controller: firstController,
+                  keyboardType: TextInputType.number,
+                  decoration: InputDecoration(
+                    hintText: 'Enter first no',
+                    border: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(10),
+                    ),
+                  ),
+                  validator: (value) {
+                    if (value!.isEmpty) {
+                      return 'Please enter first no';
+                    }
+                    return null;
+                  },
+                ),
+                const SizedBox(height: 8),
+                TextFormField(
+                  controller: secondController,
+                  keyboardType: TextInputType.number,
+                  decoration: InputDecoration(
+                    labelText: 'Enter second no',
+                    border: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(10),
+                    ),
+                  ),
+                  validator: (value) {
+                    if (value!.isEmpty) {
+                      return 'Please enter Second no';
+                    }
+                    return null;
+                  },
+                ),
+                const SizedBox(height: 8),
+                SizedBox(
+                  width: double.infinity,
+                  child: ElevatedButton(
+                    onPressed: () {
+                      if (myKey.currentState!.validate()) {
+                        add();
+                      }
+                    },
+                    child: const Text('ADD'),
                   ),
                 ),
-              ),
-              const SizedBox(height: 8),
-              TextField(
-                onChanged: (value) {
-                  second = int.parse(value);
-                },
-                decoration: InputDecoration(
-                  labelText: 'Enter second no',
-                  border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(10),
+                const SizedBox(height: 8),
+                SizedBox(
+                  width: double.infinity,
+                  child: ElevatedButton(
+                    onPressed: () {
+                      if (myKey.currentState!.validate()) {
+                        sub();
+                      }
+                    },
+                    child: const Text('SUB'),
                   ),
                 ),
-              ),
-              const SizedBox(height: 8),
-              SizedBox(
-                width: double.infinity,
-                child: ElevatedButton(
-                  onPressed: () {
-                    add();
-                  },
-                  child: const Text('ADD'),
+                const SizedBox(height: 8),
+                Text(
+                  'Sum is : $result',
+                  style: const TextStyle(
+                    fontSize: 20,
+                    fontStyle: FontStyle.italic,
+                    fontWeight: FontWeight.bold,
+                  ),
                 ),
-              ),
-              const SizedBox(height: 8),
-              SizedBox(
-                width: double.infinity,
-                child: ElevatedButton(
-                  onPressed: () {
-                    sub();
-                  },
-                  child: const Text('SUB'),
-                ),
-              ),
-              const SizedBox(height: 8),
-              Text(
-                'Sum is : $result',
-                style: const TextStyle(
-                  fontSize: 20,
-                  fontStyle: FontStyle.italic,
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
-            ],
+              ],
+            ),
           ),
         ),
       ),
