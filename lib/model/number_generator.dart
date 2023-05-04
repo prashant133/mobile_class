@@ -14,22 +14,33 @@ class NumberGenerator {
   }
 }
 
-// class CheckGreater {
-//   int correctAns = 0;
-//   int incorrectAns = 0;
-//   NumberGenerator numberGenerator = NumberGenerator();
+class CheckGreater {
+  int correctAns = 0;
+  int incorrectAns = 0;
+  int totalClicks = 0;
 
-//   int checkGreater(int number) {
-//     int randomNumber1 = numberGenerator.tellMeNumber1(number);
-//     int randomNumber2 = numberGenerator.tellMeNumber2(number);
+  NumberGenerator numberGenerator = NumberGenerator();
 
-//     if (randomNumber1 > randomNumber2) {
-//       correctAns++;
-//       print(randomNumber1);
-//     } else {
-//       incorrectAns++;
-//     }
-//     return number;
-//   }
-  
-// }
+  int checkGreater(int btnNumber) {
+    int randomNumber1 = numberGenerator.tellMeNumber1(btnNumber);
+    int randomNumber2 = numberGenerator.tellMeNumber2(btnNumber);
+
+    if (totalClicks < 10) {
+      if (btnNumber == 1) {
+        if (randomNumber1 > randomNumber2) {
+          correctAns++;
+        } else {
+          incorrectAns++;
+        }
+      } else if (btnNumber == 2) {
+        if (randomNumber2 > randomNumber1) {
+          correctAns++;
+        } else {
+          incorrectAns;
+        }
+      }
+    }
+
+    return btnNumber;
+  }
+}

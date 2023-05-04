@@ -40,6 +40,11 @@ class _ArithmeticViewState extends State<ArithmeticView> {
       result = arithmetic.add(
           int.parse(firstController.text), int.parse(secondController.text));
     });
+    Navigator.pushNamed(
+      context,
+      'outputRoute',
+      arguments: result,
+    );
   }
 
   void sub() {
@@ -48,6 +53,12 @@ class _ArithmeticViewState extends State<ArithmeticView> {
       result = arithmetic.sub(
           int.parse(firstController.text), int.parse((secondController.text)));
     });
+    Navigator.pushNamed(
+      context,
+      'outputRoute',
+      arguments: result,
+    );
+    // result = modalRoute.of(context)!.settings.arguments as int?;
   }
 
   final myKey = GlobalKey<FormState>();
@@ -108,6 +119,7 @@ class _ArithmeticViewState extends State<ArithmeticView> {
                     onPressed: () {
                       if (myKey.currentState!.validate()) {
                         add();
+                        Navigator.pushNamed(context, '/outputRoute');
                       }
                     },
                     child: const Text('ADD'),

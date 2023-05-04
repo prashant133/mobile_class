@@ -2,9 +2,12 @@ import 'package:batch_30a/model/area_of_circle.dart';
 import 'package:batch_30a/view/area_of_circle.dart';
 import 'package:batch_30a/view/arithemtic_view.dart';
 import 'package:batch_30a/view/column_view.dart';
+import 'package:batch_30a/view/container_screen.dart';
 import 'package:batch_30a/view/dashboard.dart';
+import 'package:batch_30a/view/load_image.dart';
 import 'package:batch_30a/view/name_change.dart';
 import 'package:batch_30a/view/number_generator_view.dart';
+import 'package:batch_30a/view/output_screen.dart';
 import 'package:batch_30a/view/rich_text.dart';
 import 'package:batch_30a/view/si_view.dart';
 import 'package:flutter/material.dart';
@@ -26,6 +29,9 @@ class App extends StatelessWidget {
         '/RichRoute' : (context) => const RichTextView(),
         '/ColumnRoute' : (context) => const ColumnView(),
         '/NumberRoute' : (context) => const NumberGeneratorView(),
+        '/outputRoute' : (context) => const OutputScreenView(),
+        '/containerRoute' : (context) => const ContainerView(),
+        '/loadRoute' :  (context) => const LoadImageView(),
       },
     );
   }
