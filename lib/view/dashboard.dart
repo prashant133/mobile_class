@@ -17,26 +17,35 @@ class DashboardView extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
-              const SizedBox(height: 8),
+              const SizedBox(
+                height: 8,
+              ),
               ElevatedButton(
                 onPressed: () {
                   Navigator.pushNamed(context, '/siRoute');
                 },
                 child: const Text('Simple Interest'),
               ),
-              const SizedBox(height: 8),
+              const SizedBox(
+                height: 8,
+              ),
               ElevatedButton(
                 onPressed: () {
                   Navigator.pushNamed(context, '/addRoute');
                 },
                 child: const Text('Arithmetic'),
               ),
-              const SizedBox(height: 8),
+              const SizedBox(
+                height: 8,
+              ),
               ElevatedButton(
                 onPressed: () {
                   Navigator.pushNamed(context, '/areaRoute');
                 },
                 child: const Text('Areaofcircle'),
+              ),
+               const SizedBox(
+                height: 8,
               ),
               ElevatedButton(
                 onPressed: () {
@@ -44,11 +53,17 @@ class DashboardView extends StatelessWidget {
                 },
                 child: const Text('ChangeName'),
               ),
+               const SizedBox(
+                height: 8,
+              ),
               ElevatedButton(
                 onPressed: () {
                   Navigator.pushNamed(context, '/RichRoute');
                 },
                 child: const Text('RichText'),
+              ),
+               const SizedBox(
+                height: 8,
               ),
               ElevatedButton(
                 onPressed: () {
@@ -56,11 +71,17 @@ class DashboardView extends StatelessWidget {
                 },
                 child: const Text('Column'),
               ),
+               const SizedBox(
+                height: 8,
+              ),
               ElevatedButton(
                 onPressed: () {
                   Navigator.pushNamed(context, '/NumberRoute');
                 },
                 child: const Text('Number Generator'),
+              ),
+               const SizedBox(
+                height: 8,
               ),
               ElevatedButton(
                 onPressed: () {
@@ -68,17 +89,32 @@ class DashboardView extends StatelessWidget {
                 },
                 child: const Text('Output Screen'),
               ),
+               const SizedBox(
+                height: 8,
+              ),
               ElevatedButton(
                 onPressed: () {
                   Navigator.pushNamed(context, '/containerRoute');
                 },
                 child: const Text('Container'),
               ),
+               const SizedBox(
+                height: 8,
+              ),
               ElevatedButton(
                 onPressed: () {
                   Navigator.pushNamed(context, '/loadRoute');
                 },
                 child: const Text('Load'),
+              ),
+               const SizedBox(
+                height: 8,
+              ),
+              ElevatedButton(
+                onPressed: () {
+                  Navigator.pushNamed(context, '/studentRoute');
+                },
+                child: const Text('Student'),
               ),
             ],
           ),

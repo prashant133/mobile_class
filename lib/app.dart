@@ -10,6 +10,7 @@ import 'package:batch_30a/view/number_generator_view.dart';
 import 'package:batch_30a/view/output_screen.dart';
 import 'package:batch_30a/view/rich_text.dart';
 import 'package:batch_30a/view/si_view.dart';
+import 'package:batch_30a/view/student_details.dart';
 import 'package:flutter/material.dart';
 
 class App extends StatelessWidget {
@@ -32,6 +33,7 @@ class App extends StatelessWidget {
         '/outputRoute' : (context) => const OutputScreenView(),
         '/containerRoute' : (context) => const ContainerView(),
         '/loadRoute' :  (context) => const LoadImageView(),
+        '/studentRoute' : (context) => const StudentView(),
       },
     );
   }

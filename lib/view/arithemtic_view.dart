@@ -132,6 +132,7 @@ class _ArithmeticViewState extends State<ArithmeticView> {
                     onPressed: () {
                       if (myKey.currentState!.validate()) {
                         sub();
+                        Navigator.pushNamed(context, '/outputRoute');
                       }
                     },
                     child: const Text('SUB'),
