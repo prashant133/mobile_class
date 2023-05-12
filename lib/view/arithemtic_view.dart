@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../common/show_my_message.dart';
 import '../model/arithmetic.dart';
 
 // final -> run time
@@ -132,7 +133,10 @@ class _ArithmeticViewState extends State<ArithmeticView> {
                     onPressed: () {
                       if (myKey.currentState!.validate()) {
                         sub();
-                        Navigator.pushNamed(context, '/outputRoute');
+                        // Navigator.pushNamed(context, '/outputRoute');
+
+                        showMessage(context, "the  sum is : $result",
+                            color: Colors.green);
                       }
                     },
                     child: const Text('SUB'),
