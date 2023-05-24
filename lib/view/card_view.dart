@@ -40,6 +40,9 @@ class CardView extends StatelessWidget {
                   showMessage(context, "Clicked the snackbar",
                       color: Colors.green);
                 },
+                onDoubleTap: () {
+                  showMessage(context, 'message');
+                },
                 child: displayCard(title: "inside", count: i),
               ),
             },

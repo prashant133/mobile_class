@@ -5,6 +5,8 @@ import 'package:batch_30a/view/class%20_exercise.dart';
 import 'package:batch_30a/view/column_view.dart';
 import 'package:batch_30a/view/container_screen.dart';
 import 'package:batch_30a/view/dashboard.dart';
+import 'package:batch_30a/view/data_column_view.dart';
+import 'package:batch_30a/view/gallery.dart';
 import 'package:batch_30a/view/grid_view.dart';
 import 'package:batch_30a/view/load_image.dart';
 import 'package:batch_30a/view/media_query_view.dart';
@@ -13,6 +15,7 @@ import 'package:batch_30a/view/number_generator_view.dart';
 import 'package:batch_30a/view/output_screen.dart';
 import 'package:batch_30a/view/rich_text.dart';
 import 'package:batch_30a/view/si_view.dart';
+import 'package:batch_30a/view/stack_view.dart';
 import 'package:batch_30a/view/student_details.dart';
 import 'package:flutter/material.dart';
 
@@ -41,6 +44,9 @@ class App extends StatelessWidget {
         '/classRoute': (context) => const ClassExerciseView(),
         '/GridRoute': (context) => const GirdViewScreen(),
         '/CardRoute': (context) => const CardView(),
+        '/stackRoute' : (context) => const StackView(),
+        '/galleryRoute' : (context) => const GalleryView(),
+        '/dataRoute' : (context) => const DataTableView(),
       },
     );
   }
